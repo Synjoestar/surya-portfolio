@@ -146,7 +146,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
           <p className="text-gray-500">
-            © 2024 Surya Yusuf Nugroho. Built with <span className="text-primary">code</span> & caffeine.
+            © {new Date().getFullYear()} Surya Yusuf Nugroho. Built with <span className="text-primary">code</span> & caffeine.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
