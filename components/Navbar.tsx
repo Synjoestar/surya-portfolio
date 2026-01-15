@@ -31,14 +31,17 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+            <Link href="#about" className="hover:text-primary transition-colors">
+              About
+            </Link>
             <Link href="#projects" className="hover:text-primary transition-colors">
               Projects
             </Link>
             <Link href="#experience" className="hover:text-primary transition-colors">
               Experience
             </Link>
-            <Link href="#about" className="hover:text-primary transition-colors">
-              About
+            <Link href="#certificates" className="hover:text-primary transition-colors">
+              Certificates
             </Link>
           </nav>
 
@@ -121,12 +124,22 @@ export default function Navbar() {
       >
         <nav className="flex flex-col items-center justify-center h-full gap-8">
           <Link
-            href="#projects"
+            href="#about"
             onClick={closeMenu}
             className={`text-3xl font-bold text-gray-200 hover:text-primary transition-all duration-300 transform ${
               isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
             }`}
             style={{ transitionDelay: isMenuOpen ? "100ms" : "0ms" }}
+          >
+            About
+          </Link>
+          <Link
+            href="#projects"
+            onClick={closeMenu}
+            className={`text-3xl font-bold text-gray-200 hover:text-primary transition-all duration-300 transform ${
+              isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
+            }`}
+            style={{ transitionDelay: isMenuOpen ? "150ms" : "0ms" }}
           >
             Projects
           </Link>
@@ -136,19 +149,19 @@ export default function Navbar() {
             className={`text-3xl font-bold text-gray-200 hover:text-primary transition-all duration-300 transform ${
               isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
             }`}
-            style={{ transitionDelay: isMenuOpen ? "150ms" : "0ms" }}
+            style={{ transitionDelay: isMenuOpen ? "175ms" : "0ms" }}
           >
             Experience
           </Link>
           <Link
-            href="#about"
+            href="#certificates"
             onClick={closeMenu}
             className={`text-3xl font-bold text-gray-200 hover:text-primary transition-all duration-300 transform ${
               isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
             }`}
             style={{ transitionDelay: isMenuOpen ? "200ms" : "0ms" }}
           >
-            About
+            Certificates
           </Link>
           <Link
             href="#contact"
