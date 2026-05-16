@@ -3,91 +3,83 @@ import { Linkedin, ArrowRight, Bot, Code, Camera } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full border-t border-[#393328] bg-surface-dark/50 overflow-hidden">
-      {/* Abstract Background Glows */}
-      <div 
-        className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none mix-blend-overlay" 
-        aria-label="Subtle noise texture for footer"
-      ></div>
-      <div className="absolute -top-[200px] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
+    <footer className="relative w-full border-t-4 border-border bg-primary-light overflow-hidden polka-dots">
 
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        {/* Fixed: reduced padding/shadow on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16 bg-surface p-4 sm:p-8 border-4 border-border rounded-2xl shadow-[4px_4px_0_#1A1A1A] sm:shadow-[8px_8px_0_#1A1A1A]">
           {/* Brand Column */}
           <div className="flex flex-col gap-6 lg:pr-8">
-            <div className="flex items-center gap-3 text-white group cursor-default">
-              <div className="size-8 flex items-center justify-center rounded-lg bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-black transition-all duration-500">
-                <Bot size={20} />
+            <div className="flex items-center gap-3 text-text group cursor-default">
+              <div className="size-12 flex items-center justify-center rounded-xl bg-accent-yellow border-3 border-border shadow-[4px_4px_0_#1A1A1A] group-hover:translate-x-1 group-hover:translate-y-1 group-hover:shadow-[2px_2px_0_#1A1A1A] transition-all duration-300">
+                <Bot size={28} strokeWidth={2.5} />
               </div>
-              <h2 className="text-2xl font-bold tracking-tight">
-                syncode<span className="text-primary">.site</span>
+              <h2 className="text-3xl font-black tracking-tight uppercase">
+                syncode
               </h2>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-text font-bold text-sm leading-relaxed border-l-4 border-border pl-4 bg-bg-alt p-3">
               Engineering intelligence for the modern web. Exploring the frontiers of Machine Learning and aesthetic design.
             </p>
             <div className="flex gap-4 mt-2">
-              {/* Social Buttons with Glow Effect */}
+              {/* Social Buttons */}
               <a
                 href="https://www.linkedin.com/in/surya-yusuf-nugroho"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-center w-10 h-10 rounded-lg bg-[#2a261e] border border-[#393328] hover:border-primary/50 hover:bg-surface-dark transition-all duration-300 overflow-hidden"
+                className="brutal-button !p-3 bg-surface"
               >
-                <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <Linkedin size={18} className="text-gray-400 group-hover:text-primary relative z-10 transition-colors" />
+                <Linkedin size={20} className="text-text" />
               </a>
               <a
                 href="https://github.com/Synjoestar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-center w-10 h-10 rounded-lg bg-[#2a261e] border border-[#393328] hover:border-primary/50 hover:bg-surface-dark transition-all duration-300 overflow-hidden"
+                className="brutal-button !p-3 bg-surface"
               >
-                <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <Code size={18} className="text-gray-400 group-hover:text-primary relative z-10 transition-colors" />
+                <Code size={20} className="text-text" />
               </a>
               <a
                 href="https://instagram.com/utchup"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-center w-10 h-10 rounded-lg bg-[#2a261e] border border-[#393328] hover:border-primary/50 hover:bg-surface-dark transition-all duration-300 overflow-hidden"
+                className="brutal-button !p-3 bg-surface"
               >
-                <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <Camera size={18} className="text-gray-400 group-hover:text-primary relative z-10 transition-colors" />
+                <Camera size={20} className="text-text" />
               </a>
             </div>
           </div>
 
-          {/* Navigation Column */}
+          {/* Navigation Column - Reordered to match AIDA flow */}
           <div className="flex flex-col gap-6">
-            <h3 className="text-white font-bold text-lg tracking-wide">Explore</h3>
-            <nav className="flex flex-col gap-4">
-              <Link
-                href="#projects"
-                className="text-gray-400 hover:text-primary hover:translate-x-2 transition-all duration-300 text-sm font-medium w-fit flex items-center gap-2 group"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-primary transition-colors"></span>
-                Latest Projects
-              </Link>
+            <h3 className="text-text font-black text-xl tracking-wide uppercase border-b-3 border-border pb-2 w-fit">Explore</h3>
+            <nav className="flex flex-col gap-4 font-bold text-lg">
               <Link
                 href="#about"
-                className="text-gray-400 hover:text-primary hover:translate-x-2 transition-all duration-300 text-sm font-medium w-fit flex items-center gap-2 group"
+                className="text-text hover:text-primary-dark hover:translate-x-2 transition-all flex items-center gap-2"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-primary transition-colors"></span>
+                <span className="w-2 h-2 bg-border"></span>
                 About Me
               </Link>
               <Link
-                href="#experience"
-                className="text-gray-400 hover:text-primary hover:translate-x-2 transition-all duration-300 text-sm font-medium w-fit flex items-center gap-2 group"
+                href="#projects"
+                className="text-text hover:text-primary-dark hover:translate-x-2 transition-all flex items-center gap-2"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-primary transition-colors"></span>
+                <span className="w-2 h-2 bg-border"></span>
+                Projects
+              </Link>
+              <Link
+                href="#experience"
+                className="text-text hover:text-primary-dark hover:translate-x-2 transition-all flex items-center gap-2"
+              >
+                <span className="w-2 h-2 bg-border"></span>
                 Experience
               </Link>
               <Link
                 href="#contact"
-                className="text-gray-400 hover:text-primary hover:translate-x-2 transition-all duration-300 text-sm font-medium w-fit flex items-center gap-2 group"
+                className="text-text hover:text-primary-dark hover:translate-x-2 transition-all flex items-center gap-2"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-primary transition-colors"></span>
+                <span className="w-2 h-2 bg-border"></span>
                 Contact
               </Link>
             </nav>
@@ -95,62 +87,58 @@ export default function Footer() {
 
           {/* Contact/Status Column */}
           <div className="flex flex-col gap-6">
-            <h3 className="text-white font-bold text-lg tracking-wide">Status</h3>
+            <h3 className="text-text font-black text-xl tracking-wide uppercase border-b-3 border-border pb-2 w-fit">Status</h3>
             <div className="flex flex-col gap-4">
-              <div className="p-4 rounded-xl bg-[#2a261e]/50 border border-[#393328] backdrop-blur-sm">
+              <div className="p-4 bg-accent-yellow border-3 border-border shadow-[4px_4px_0_#1A1A1A] rounded-xl">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Availability</span>
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  <span className="text-xs font-black text-text uppercase tracking-wider">Availability</span>
+                  <span className="flex h-3 w-3 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-success border-2 border-border"></span>
                   </span>
                 </div>
-                <p className="text-white text-sm font-medium">Open for collaboration</p>
+                <p className="text-text text-base font-black">Open for collaboration</p>
               </div>
-              <div className="p-4 rounded-xl bg-[#2a261e]/50 border border-[#393328] backdrop-blur-sm">
+              <div className="p-4 bg-bg border-3 border-border shadow-[4px_4px_0_#1A1A1A] rounded-xl">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Location</span>
-                  <span className="material-symbols-outlined text-[16px] text-gray-500">public</span>
+                  <span className="text-xs font-black text-text uppercase tracking-wider">Location</span>
                 </div>
-                <p className="text-white text-sm font-medium">Remote / Worldwide</p>
+                <p className="text-text text-base font-black">Remote / Worldwide</p>
               </div>
             </div>
           </div>
 
           {/* Newsletter Column */}
           <div className="flex flex-col gap-6">
-            <h3 className="text-white font-bold text-lg tracking-wide">Stay Connected</h3>
-            <p className="text-gray-400 text-sm">Get the latest ML insights and project updates.</p>
-            <form className="flex flex-col gap-3">
+            <h3 className="text-text font-black text-xl tracking-wide uppercase border-b-3 border-border pb-2 w-fit">Updates</h3>
+            <p className="text-text font-bold text-sm">Get the latest ML insights and project updates.</p>
+            <form className="flex flex-col gap-4">
               <div className="relative">
                 <input
                   type="email"
-                  className="w-full bg-[#181511] border border-[#393328] text-white text-sm rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-600"
+                  className="w-full bg-surface border-3 border-border text-text font-bold text-sm rounded-lg px-4 py-3 sm:py-4 focus:outline-none focus:shadow-[4px_4px_0_#9B8AFB] transition-all placeholder:text-text-muted"
                   placeholder="email@example.com"
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 aspect-square bg-primary text-background-dark rounded-md flex items-center justify-center hover:brightness-110 transition-all"
+                  className="absolute right-2 top-2 bottom-2 aspect-square bg-primary border-2 border-border text-text rounded-md flex items-center justify-center hover:translate-x-[2px] hover:translate-y-[2px] transition-all shadow-[2px_2px_0_#1A1A1A]"
                 >
-                  <ArrowRight size={20} />
+                  <ArrowRight size={20} strokeWidth={3} />
                 </button>
               </div>
-              <p className="text-xs text-gray-600">No spam, just tech.</p>
+              <p className="text-xs font-black text-text-muted uppercase tracking-wider bg-bg-alt w-fit px-2 border-2 border-border">No spam, just tech.</p>
             </form>
           </div>
         </div>
 
-        {/* Divider with neon accent */}
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#393328] to-transparent mb-8"></div>
-
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
-          <p className="text-gray-500">
-            © {new Date().getFullYear()} Surya Yusuf Nugroho. Built with <span className="text-primary">code</span> & caffeine.
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm font-bold bg-surface p-4 sm:p-6 border-4 border-border rounded-xl shadow-[4px_4px_0_#1A1A1A] sm:shadow-[6px_6px_0_#1A1A1A]">
+          <p className="text-text text-sm sm:text-base">
+            © {new Date().getFullYear()} Surya Yusuf Nugroho. Built with <span className="text-primary-dark font-black uppercase px-1 bg-primary-light border-2 border-border">code</span> & caffeine.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="text-text hover:underline decoration-2 underline-offset-4 transition-colors">Privacy Policy</a>
+            <a href="#" className="text-text hover:underline decoration-2 underline-offset-4 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

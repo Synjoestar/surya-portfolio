@@ -1,29 +1,20 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Brain, Download, ArrowRight, Eye, MessageSquare, Terminal, Cpu, Code, Database, Globe } from "lucide-react";
+import { Brain, Download, ArrowRight, Eye, MessageSquare, Cpu, Code, Database, Globe } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative flex min-h-screen w-full flex-col py-20 overflow-hidden">
-      {/* Background Grid - simulating tech-grid-bg */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(245,159,10,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(245,159,10,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-      </div>
-
-      {/* Decorative Background Glow */}
-      <div className="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-[10%] left-[5%] w-[300px] h-[300px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
-
+    <section id="about" className="relative flex min-h-0 lg:min-h-screen w-full flex-col py-20 overflow-hidden bg-bg">
       <div className="container mx-auto px-6 md:px-10 lg:px-20 flex flex-1 justify-center py-5 relative z-10">
         <div className="flex flex-col max-w-[1200px] flex-1">
           {/* Section Header */}
           <ScrollReveal>
           <div className="flex items-center gap-3 px-4 pb-6 pt-4">
-            <span className="h-[1px] w-8 bg-primary"></span>
-            <h3 className="text-primary font-mono text-sm font-bold tracking-widest uppercase">About The Engineer</h3>
+            <span className="h-[4px] w-8 bg-primary border-y-2 border-l-2 border-border"></span>
+            <h3 className="text-text font-mono text-sm font-black tracking-widest uppercase bg-primary-light px-2 py-1 border-2 border-border">About The Engineer</h3>
           </div>
           </ScrollReveal>
 
@@ -31,14 +22,10 @@ export default function AboutSection() {
           <ScrollReveal delay={0.2}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start px-4">
             {/* Left Column: Portrait & Stats */}
-            <div className="lg:col-span-5 flex flex-col gap-6 relative group">
-              {/* Portrait Card */}
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl transition-transform duration-500 hover:scale-[1.01] bg-surface-dark">
-                {/* Glitch Overlay Effect Container */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#181511] via-transparent to-transparent z-10 opacity-60"></div>
-                
-                {/* Image */}
-                <div className="relative w-full h-full">
+            <div className="lg:col-span-5 flex flex-col gap-6 relative group mt-4">
+              {/* Portrait Card - Fixed: aspect-square on mobile, aspect-[4/5] on desktop */}
+              <div className="relative w-full aspect-square lg:aspect-[4/5] overflow-hidden brutal-card bg-primary-light p-2 group">
+                <div className="relative w-full h-full rounded-xl overflow-hidden border-3 border-border bg-surface">
                   <Image 
                     src="/images/profile.webp" 
                     alt="Surya Yusuf Nugroho" 
@@ -49,18 +36,18 @@ export default function AboutSection() {
 
                 {/* Floating Badge */}
                 <div className="absolute bottom-4 left-4 right-4 z-20">
-                  <div className="glass-panel rounded-xl p-4 flex items-center justify-between">
+                  <div className="brutal-card p-4 flex items-center justify-between">
                     <div>
-                      <p className="text-white text-sm font-bold">Status</p>
+                      <p className="text-text text-sm font-black uppercase">Status</p>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="relative flex h-2.5 w-2.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                        <span className="relative flex h-3 w-3">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-3 w-3 bg-success border border-border"></span>
                         </span>
-                        <span className="text-gray-300 text-xs font-mono">Accepting Projects</span>
+                        <span className="text-text-muted text-xs font-bold uppercase">Accepting Projects</span>
                       </div>
                     </div>
-                    <div className="h-10 w-10 rounded-lg bg-[#2d2820] flex items-center justify-center text-primary border border-white/5">
+                    <div className="h-10 w-10 rounded-lg bg-accent-yellow flex items-center justify-center text-text border-2 border-border shadow-[2px_2px_0_#1A1A1A]">
                       <Brain size={24} />
                     </div>
                   </div>
@@ -69,86 +56,91 @@ export default function AboutSection() {
 
               {/* Mini Stats Grid */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="glass-panel p-5 rounded-xl border border-primary/20 hover:border-primary/50 transition-colors">
-                  <h4 className="text-3xl font-bold text-white mb-1">1<span className="text-primary text-xl">+</span></h4>
-                  <p className="text-gray-400 text-xs font-mono uppercase tracking-wider">Years Exp.</p>
+                <div className="brutal-card p-5 bg-accent-pink">
+                  <h4 className="text-3xl font-black text-text mb-1">1<span className="text-text text-xl">+</span></h4>
+                  <p className="text-text font-bold text-xs uppercase tracking-wider">Years Exp.</p>
                 </div>
-                <div className="glass-panel p-5 rounded-xl border border-white/5 hover:border-white/20 transition-colors">
-                  <h4 className="text-3xl font-bold text-white mb-1">5<span className="text-primary text-xl">+</span></h4>
-                  <p className="text-gray-400 text-xs font-mono uppercase tracking-wider">Models Deployed</p>
+                <div className="brutal-card p-5 bg-primary-light">
+                  <h4 className="text-3xl font-black text-text mb-1">5<span className="text-text text-xl">+</span></h4>
+                  <p className="text-text font-bold text-xs uppercase tracking-wider">Models Deployed</p>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Bio & Details */}
             <div className="lg:col-span-7 flex flex-col justify-center h-full pt-4 lg:pt-0">
-              <h1 className="text-white tracking-tight text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1] mb-8">
-                Building the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">brains</span> <br className="hidden md:block"/> of tomorrow.
+              <h1 className="text-text tracking-tighter text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-8 uppercase drop-shadow-[2px_2px_0_rgba(155,138,251,1)]">
+                Building the <span className="text-primary-dark underline decoration-border decoration-4 underline-offset-4">brains</span> <br className="hidden md:block"/> of tomorrow.
               </h1>
               
-              <div className="space-y-6 text-gray-300 text-lg leading-relaxed max-w-[640px]">
+              <div className="space-y-6 text-text-muted text-lg font-medium leading-relaxed max-w-[640px]">
                 <p>
-                  I’m <span className="text-white font-semibold">Surya Yusuf Nugroho</span>, an ML Engineer obsessed with optimization. I don't just write code; I design systems that learn, adapt, and evolve.
+                  I&apos;m <span className="text-text font-black uppercase bg-accent-yellow px-1 border-2 border-border shadow-[2px_2px_0_#1A1A1A]">Surya Yusuf Nugroho</span>, an ML Engineer obsessed with optimization. I don&apos;t just write code; I design systems that learn, adapt, and evolve.
                 </p>
                 <p>
-                  My passion lies in blending <span className="text-primary border-b border-primary/30 pb-0.5">rigorous mathematics</span> with creative problem-solving. I turn raw, chaotic data into predictive power and actionable intelligence.
+                  My passion lies in blending <span className="text-text font-bold bg-primary-light px-1 border-b-4 border-border">rigorous mathematics</span> with creative problem-solving. I turn raw, chaotic data into predictive power and actionable intelligence.
                 </p>
-                <p className="text-base text-gray-400 italic border-l-2 border-primary/50 pl-4 py-1">
-                  "Architecture is policy. How we build our models defines how they interact with the world."
-                </p>
+                <div className="brutal-card p-4 bg-surface relative">
+                    <div className="absolute -top-3 -left-3 bg-accent-pink p-1 border-2 border-border shadow-[2px_2px_0_#1A1A1A]">
+                       <Globe size={16} className="text-text" />
+                    </div>
+                    <p className="text-base text-text font-bold italic">
+                    &quot;Architecture is policy. How we build our models defines how they interact with the world.&quot;
+                    </p>
+                </div>
               </div>
 
               {/* Tech Stack Ticker/Grid */}
               <div className="mt-10 mb-10">
-                <p className="text-xs font-mono text-gray-500 mb-4 uppercase tracking-widest">Tech Arsenal</p>
+                <p className="text-sm font-black text-text mb-4 uppercase tracking-widest bg-border text-surface inline-block px-2 py-1">Tech Arsenal</p>
                 <div className="flex flex-wrap gap-3">
                   {/* Technology Tags */}
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#2d2820] border border-white/5 hover:border-primary/50 transition-colors cursor-default">
-                    <Code size={18} className="text-gray-300" />
-                    <span className="text-sm font-mono text-gray-300">Python</span>
+                  <div className="brutal-tag">
+                    <Code size={16} />
+                    <span>Python</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#2d2820] border border-white/5 hover:border-primary/50 transition-colors cursor-default">
-                    <Cpu size={18} className="text-gray-300" />
-                    <span className="text-sm font-mono text-gray-300">PyTorch</span>
+                  <div className="brutal-tag brutal-tag-accent">
+                    <Cpu size={16} />
+                    <span>PyTorch</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#2d2820] border border-white/5 hover:border-primary/50 transition-colors cursor-default">
-                    <Database size={18} className="text-gray-300" />
-                    <span className="text-sm font-mono text-gray-300">TensorFlow</span>
+                  <div className="brutal-tag">
+                    <Database size={16} />
+                    <span>TensorFlow</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#2d2820] border border-white/5 hover:border-primary/50 transition-colors cursor-default">
-                    <Eye size={18} className="text-gray-400" />
-                    <span className="text-sm font-mono text-gray-300">Computer Vision</span>
+                  <div className="brutal-tag brutal-tag-accent">
+                    <Eye size={16} />
+                    <span>Computer Vision</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#2d2820] border border-white/5 hover:border-primary/50 transition-colors cursor-default">
-                    <MessageSquare size={18} className="text-gray-400" />
-                    <span className="text-sm font-mono text-gray-300">NLP</span>
+                  <div className="brutal-tag">
+                    <MessageSquare size={16} />
+                    <span>NLP</span>
                   </div>
                 </div>
               </div>
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mt-auto">
-                <a href="https://drive.google.com/file/d/1pYKjMc-x7FimIwyQof6UFcURLs73Y9YJ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-8 py-3 bg-primary hover:bg-white hover:text-black text-[#181511] font-bold rounded-lg transition-all duration-300 shadow-[0_0_20px_-5px_rgba(245,159,10,0.3)] hover:shadow-white/20">
-                  <Download size={20} />
-                  <span>Download Resume</span>
+                <a href="https://drive.google.com/file/d/1pYKjMc-x7FimIwyQof6UFcURLs73Y9YJ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="brutal-button bg-accent-yellow text-lg">
+                  <Download size={20} className="mr-2" />
+                  <span>Resume</span>
                 </a>
-                <Link href="#projects" className="flex items-center justify-center gap-2 px-8 py-3 bg-transparent border border-white/20 hover:border-primary hover:text-primary text-white font-medium rounded-lg transition-all duration-300 group">
-                    <span>View Portfolio</span>
-                    <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+                <Link href="#projects" className="brutal-button bg-surface text-lg">
+                    <span>Portfolio</span>
+                    <ArrowRight size={20} className="ml-2" />
                 </Link>
               </div>
             </div>
           </div>
           </ScrollReveal>
 
-          {/* Bottom "Ticker" visual decoration */}
-          <div className="w-full mt-24 border-t border-white/5 pt-8">
-            <div className="flex justify-between items-center text-gray-600 font-mono text-xs uppercase tracking-widest">
-              <span>Based in Indonesia</span>
+          {/* Bottom "Ticker" visual decoration - Fixed: justify-center on mobile */}
+          <div className="w-full mt-24 border-t-4 border-border pt-8">
+            <div className="flex justify-center md:justify-between items-center text-text font-bold text-xs uppercase tracking-widest flex-wrap gap-3">
+              <span className="bg-primary-light px-2 py-1 border-2 border-border shadow-[2px_2px_0_#1A1A1A]">Based in Indonesia</span>
               <span className="hidden md:inline-block">/</span>
-              <span className="hidden md:inline-block">Available for Freelance</span>
+              <span className="bg-accent-pink px-2 py-1 border-2 border-border shadow-[2px_2px_0_#1A1A1A]">Available for Freelance</span>
               <span className="hidden md:inline-block">/</span>
-              <span>UTC+7 Timezone</span>
+              <span className="bg-accent-yellow px-2 py-1 border-2 border-border shadow-[2px_2px_0_#1A1A1A]">UTC+7 Timezone</span>
             </div>
           </div>
         </div>

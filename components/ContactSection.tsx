@@ -1,7 +1,6 @@
 "use client";
 import { useState, FormEvent } from "react";
 import { Mail, MapPin, Code, AtSign, Camera, ChevronDown, Send, CheckCircle, Home } from "lucide-react";
-import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 export default function ContactSection() {
@@ -38,160 +37,154 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-20 px-6 min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Background Orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-100px] left-[-100px] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[80px] opacity-40"></div>
-        <div className="absolute bottom-[-200px] right-[-100px] w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[80px] opacity-30"></div>
-      </div>
+    <section id="contact" className="relative py-20 px-6 min-h-0 lg:min-h-screen flex flex-col items-center justify-center overflow-hidden bg-bg">
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 w-full items-center">
           {/* Left Column: Heading & Info */}
           <ScrollReveal>
           <div className="flex flex-col justify-center gap-8 lg:pr-10">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 w-fit">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              <div className="brutal-tag brutal-tag-accent w-fit">
+                <span className="relative flex h-3 w-3 mr-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-border opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-border"></span>
                 </span>
-                <span className="text-primary text-xs font-bold uppercase tracking-wider">Open for Work</span>
+                Open for Work
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1]">
-                Let's <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Collaborate.</span>
+              {/* Fixed: smaller headline on mobile */}
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-text tracking-tighter leading-[1] uppercase drop-shadow-[4px_4px_0_#FBBF24]">
+                Let&apos;s <br/>
+                Collaborate.
               </h1>
-              <p className="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-md">
-                Have a complex ML architecture to discuss or a bold project in mind? I'm ready to help you build the future.
+              <p className="text-text-muted font-bold text-lg md:text-xl leading-relaxed max-w-md bg-surface p-4 border-3 border-border rounded-xl shadow-[4px_4px_0_#1A1A1A] mt-4">
+                Have a complex ML architecture to discuss or a bold project in mind? I&apos;m ready to help you build the future.
               </p>
             </div>
 
             {/* Contact Details Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-              <a href="mailto:suryanugroho042@gmail.com" className="group glass-panel p-5 rounded-xl hover:bg-white/5 transition-all cursor-pointer">
-                <div className="size-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+              <a href="mailto:suryanugroho042@gmail.com" className="brutal-card p-6 cursor-pointer bg-primary-light hover:bg-primary transition-colors">
+                <div className="size-12 rounded-xl bg-surface border-3 border-border flex items-center justify-center text-text mb-4 shadow-[4px_4px_0_#1A1A1A]">
                   <Mail size={24} />
                 </div>
-                <h3 className="text-white font-bold text-lg">Email</h3>
-                <p className="text-gray-400 text-sm mt-1">suryanugroho042@gmail.com</p>
+                <h3 className="text-text font-black text-xl uppercase">Email</h3>
+                {/* Fixed: break-words instead of break-all */}
+                <p className="text-text font-bold mt-2 text-sm md:text-base break-words">suryanugroho042@gmail.com</p>
               </a>
-              <div className="group glass-panel p-5 rounded-xl hover:bg-white/5 transition-all cursor-pointer">
-                <div className="size-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+              <div className="brutal-card p-6 bg-accent-pink hover:bg-pink-400 transition-colors">
+                <div className="size-12 rounded-xl bg-surface border-3 border-border flex items-center justify-center text-text mb-4 shadow-[4px_4px_0_#1A1A1A]">
                   <MapPin size={24} />
                 </div>
-                <h3 className="text-white font-bold text-lg">Location</h3>
-                <p className="text-gray-400 text-sm mt-1">Jakarta, Indonesia</p>
+                <h3 className="text-text font-black text-xl uppercase">Location</h3>
+                <p className="text-text font-bold mt-2">Jakarta, Indonesia</p>
               </div>
             </div>
 
             {/* Socials */}
-            <div className="flex gap-4 mt-4">
-              <a href="https://github.com/Synjoestar" target="_blank" rel="noopener noreferrer" className="size-12 rounded-full glass-panel flex items-center justify-center text-white hover:text-primary hover:border-primary/50 transition-all group">
-                <Code size={24} className="group-hover:scale-110 transition-transform" />
+            <div className="flex gap-4 mt-6">
+              <a href="https://github.com/Synjoestar" target="_blank" rel="noopener noreferrer" className="brutal-button bg-surface !p-3">
+                <Code size={24} />
               </a>
-              <a href="https://www.linkedin.com/in/surya-yusuf-nugroho" target="_blank" rel="noopener noreferrer" className="size-12 rounded-full glass-panel flex items-center justify-center text-white hover:text-primary hover:border-primary/50 transition-all group">
-                <AtSign size={24} className="group-hover:scale-110 transition-transform" />
+              <a href="https://www.linkedin.com/in/surya-yusuf-nugroho" target="_blank" rel="noopener noreferrer" className="brutal-button bg-primary !p-3">
+                <AtSign size={24} />
               </a>
-              <a href="https://instagram.com/utchup" target="_blank" rel="noopener noreferrer" className="size-12 rounded-full glass-panel flex items-center justify-center text-white hover:text-primary hover:border-primary/50 transition-all group">
-                <Camera size={24} className="group-hover:scale-110 transition-transform" />
+              <a href="https://instagram.com/utchup" target="_blank" rel="noopener noreferrer" className="brutal-button bg-accent-yellow !p-3">
+                <Camera size={24} />
               </a>
             </div>
           </div>
           </ScrollReveal>
 
-          {/* Right Column: Glass Form */}
+          {/* Right Column: Brutalist Form - Fixed: no min-h on mobile */}
           <ScrollReveal delay={0.2}>
           <div className="relative">
-            {/* Glow effect behind form */}
-            <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full transform scale-90"></div>
             
-            <div className="glass-panel p-8 md:p-10 rounded-2xl relative z-10 w-full shadow-2xl shadow-black/50 overflow-hidden min-h-[600px] flex flex-col justify-center">
+            <div className="brutal-card p-8 md:p-10 relative z-10 w-full min-h-0 md:min-h-[600px] flex flex-col justify-center bg-surface">
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6 fade-in">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <label className="flex flex-col gap-2">
-                      <span className="text-white text-sm font-medium">Name</span>
+                      <span className="text-text text-base font-black uppercase">Name</span>
                       <input 
                         type="text" 
                         name="name"
                         placeholder="Your Name" 
                         required
-                        className="glass-input w-full rounded-lg h-12 px-4 text-white placeholder:text-white/20 focus:ring-0"
+                        className="brutal-input"
                       />
                     </label>
                     <label className="flex flex-col gap-2">
-                      <span className="text-white text-sm font-medium">Email</span>
+                      <span className="text-text text-base font-black uppercase">Email</span>
                       <input 
                         type="email" 
                         name="email"
                         placeholder="you@example.com" 
                         required
-                        className="glass-input w-full rounded-lg h-12 px-4 text-white placeholder:text-white/20 focus:ring-0"
+                        className="brutal-input"
                       />
                     </label>
                   </div>
                   
                   <label className="flex flex-col gap-2">
-                    <span className="text-white text-sm font-medium">Subject</span>
+                    <span className="text-text text-base font-black uppercase">Subject</span>
                     <div className="relative">
-                      <select name="subject" className="glass-input w-full rounded-lg h-12 px-4 text-white focus:ring-0 appearance-none cursor-pointer bg-[#18181b]">
+                      <select name="subject" className="brutal-input w-full appearance-none cursor-pointer bg-surface font-bold">
                         <option>Project Inquiry</option>
                         <option>Technical Consultation</option>
                         <option>Speaking Opportunity</option>
                         <option>Other</option>
                       </select>
-                      <div className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none">
-                        <ChevronDown size={16} />
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 text-text pointer-events-none">
+                        <ChevronDown size={24} strokeWidth={3} />
                       </div>
                     </div>
                   </label>
                   
                   <label className="flex flex-col gap-2">
-                    <span className="text-white text-sm font-medium">Message</span>
+                    <span className="text-text text-base font-black uppercase">Message</span>
                     <textarea 
                       name="message"
                       placeholder="Tell me about your idea..." 
                       required
-                      className="glass-input w-full rounded-lg min-h-[160px] p-4 text-white placeholder:text-white/20 focus:ring-0 resize-y"
+                      className="brutal-input min-h-[160px] resize-y"
                     ></textarea>
                   </label>
                   
                   <button 
                     type="submit" 
                     disabled={isLoading}
-                    className="neon-button mt-2 flex w-full cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg h-14 bg-primary text-[#181511] text-base font-bold leading-normal tracking-[0.015em] disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="brutal-button bg-primary text-base sm:text-xl py-3 sm:py-4 mt-2 uppercase w-full disabled:opacity-70 disabled:cursor-not-allowed justify-center"
                   >
                     <span>{isLoading ? "Sending..." : "Send Message"}</span>
-                    {!isLoading && <Send size={18} />}
+                    {!isLoading && <Send size={24} className="ml-2" />}
                   </button>
                   
                   {error && (
-                    <p className="text-center text-sm text-red-400">{error}</p>
+                    <p className="text-center font-bold text-red-600 border-2 border-red-600 bg-red-100 p-2 rounded-lg shadow-[2px_2px_0_#1A1A1A]">{error}</p>
                   )}
                   
-                  <p className="text-center text-xs text-white/30 mt-2">
+                  <p className="text-center text-sm font-bold text-text-muted mt-2 border-3 border-border border-dashed p-2 bg-bg-alt rounded-lg">
                     Usually responds within 24 hours.
                   </p>
                 </form>
               ) : (
-                <div className="absolute inset-0 z-50 flex flex-col items-center justify-center p-6 text-center animate-in fade-in zoom-in duration-500">
-                  <div className="relative flex items-center justify-center mb-6">
-                    <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full animate-pulse"></div>
-                    <div className="relative bg-[#18181b] p-4 rounded-full border border-primary/40 shadow-[0_0_25px_rgba(245,159,10,0.4)]">
-                      <CheckCircle size={48} className="text-primary" />
+                <div className="flex flex-col items-center justify-center p-6 text-center h-full">
+                  <div className="mb-8">
+                    <div className="bg-success p-6 rounded-full border-4 border-border shadow-[8px_8px_0_#1A1A1A]">
+                      <CheckCircle size={64} className="text-white" strokeWidth={3} />
                     </div>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight">Transmission Sent</h3>
-                  <p className="text-white/60 text-sm md:text-base max-w-xs mb-8 leading-relaxed">
-                    Thanks for reaching out. I've received your data and will process your request shortly.
+                  <h3 className="text-4xl font-black text-text mb-4 uppercase">Success</h3>
+                  <p className="text-text-muted font-bold text-lg mb-8 max-w-sm">
+                    Message received. I&apos;ll get back to you as soon as possible!
                   </p>
                   <button 
                     onClick={() => setIsSubmitted(false)}
-                    className="neon-button inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg bg-primary text-background-dark font-bold text-sm uppercase tracking-wider hover:scale-105 transition-transform"
+                    className="brutal-button bg-primary text-xl py-3 px-8 uppercase"
                   >
+                    <Home size={24} className="mr-2" />
                     <span>Back to Form</span>
-                    <Home size={18} />
                   </button>
                 </div>
               )}

@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ["latin"], 
+  variable: "--font-display",
+  weight: ['400', '500', '600', '700']
+});
+
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 });
-// const plusJakarta = Plus_Jakarta_Sans({
-//   subsets: ["latin"],
-//   variable: "--font-display",
-// });
 
 export const metadata: Metadata = {
-  title: "Surya Yusuf Nugroho - ML Engineer Portfolio",
+  title: "Surya Yusuf Nugroho - Portfolio",
   description: "Machine Learning Engineer utilizing deep learning and MLOps.",
 };
 
@@ -23,9 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-white`}
+        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} bg-bg text-text font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-text`}
       >
         {children}
       </body>

@@ -161,8 +161,8 @@ PORTFOLIOSURYA/
 
 | Phase | Focus | Status |
 |-------|-------|--------|
-| P1 | Setup Foundation | 🔲 Pending |
-| P2 | Hero & Identity | 🔲 Pending |
-| P3 | Bento Projects | 🔲 Pending |
-| P4 | Experience Section | 🔲 Pending |
-| P5 | Polish & Deploy | 🔲 Pending |
+| P1 | Setup Foundation | ✅ Done |
+| P2 | Hero & Identity | ✅ Done |
+| P3 | Bento Projects | ✅ Done |
+| P4 | Experience Section | ✅ Done |
+| P5 | Polish & Deploy | ✅ Done |

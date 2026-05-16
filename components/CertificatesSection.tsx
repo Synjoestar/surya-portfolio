@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Download, ExternalLink, Award } from "lucide-react";
 
@@ -14,6 +14,7 @@ interface Certificate {
     pdfUrl?: string; // Optional URL for the PDF download or verification
     credentialUrl?: string; // Link to the digital credential/certificate
     badge: string; // Short acronym for the card icon (e.g., "ML", "AI")
+    color: string;
 }
 
 const certificates: Certificate[] = [
@@ -26,6 +27,7 @@ const certificates: Certificate[] = [
         category: "Generative AI",
         imageUrl: "/certificates/[Coding Camp 2025 - SMK] Best Capstone Project - MS118D5Y0628.webp",
         badge: "AI",
+        color: "bg-accent-pink"
     },
     {
         id: "2",
@@ -36,6 +38,7 @@ const certificates: Certificate[] = [
         category: "Machine Learning",
         imageUrl: "/certificates/[Coding Camp 2025] Certificate - MS118D5Y0628-1.webp",
         badge: "CC",
+        color: "bg-accent-yellow"
     },
     {
         id: "3",
@@ -47,6 +50,7 @@ const certificates: Certificate[] = [
         imageUrl: "/certificates/belajarpengembanganmachinelearning-1.webp",
         credentialUrl: "https://www.dicoding.com/certificates/RVZKW03MMZD5",
         badge: "DL",
+        color: "bg-primary-light"
     },
     {
         id: "4",
@@ -58,6 +62,7 @@ const certificates: Certificate[] = [
         imageUrl: "/certificates/sertifikat_course_319_4265038_080625125027-1.webp",
         credentialUrl: "https://www.dicoding.com/certificates/0LZ0RKJ93P65",
         badge: "ML",
+        color: "bg-success"
     },
     {
         id: "5",
@@ -69,6 +74,7 @@ const certificates: Certificate[] = [
         imageUrl: "/certificates/belajarfundamentalpemrosesandata-1.webp",
         credentialUrl: "https://www.dicoding.com/certificates/98XWENQ0LXM3",
         badge: "DE",
+        color: "bg-primary"
     },
      {
         id: "6",
@@ -80,12 +86,12 @@ const certificates: Certificate[] = [
         imageUrl: "/certificates/sertifikat_course_555_4265038_020225083715-1.webp",
         credentialUrl: "https://www.dicoding.com/certificates/GRX53DGJRZ0M",
         badge: "DA",
+        color: "bg-accent-pink"
     },
 ];
+
 export default function CertificatesSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  /* Removed filtering logic as per request */
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -98,116 +104,101 @@ export default function CertificatesSection() {
   };
 
   return (
-    <section className="relative py-20 overflow-hidden bg-background-dark" id="certificates">
-      {/* Background Ambience */}
-      <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none"></div>
-      <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] mix-blend-screen pointer-events-none"></div>
+    <section className="relative py-20 overflow-hidden bg-bg polka-dots" id="certificates">
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header */}
         <div className="flex flex-col gap-2 mb-12 text-center md:text-left">
-          <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            <span className="text-xs font-mono text-primary tracking-widest uppercase">Certifications</span>
+          <div className="brutal-tag brutal-tag-accent mb-4 self-center md:self-start w-fit">
+             Certifications
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-white font-display">
-            PROVEN <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-200">EXPERTISE</span>
+          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight text-text drop-shadow-[4px_4px_0_#9B8AFB]">
+            PROVEN EXPERTISE
           </h2>
-          <p className="text-gray-400 text-sm md:text-base font-mono mt-2 max-w-xl">
-             // Validated technical milestones across Machine Learning, Cloud Engineering, and Data Science.
+          <p className="text-text-muted font-bold text-base md:text-lg mt-2 max-w-xl mx-auto md:mx-0">
+             Validated technical milestones across Machine Learning, Cloud Engineering, and Data Science.
           </p>
         </div>
 
-        {/* Filter Buttons */}
-        {/* Filter Buttons Removed */}
-
         {/* Cards Container */}
         <div className="relative w-full group/container">
-            {/* Scroll Gradient Masks */}
-            <div className="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-background-dark to-transparent z-20 pointer-events-none"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-background-dark to-transparent z-20 pointer-events-none"></div>
 
             {/* Scroll Buttons */}
              <button 
                 onClick={() => scroll("left")}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/10 text-white hover:bg-primary hover:text-black transition-all opacity-0 group-hover/container:opacity-100 hidden md:block"
+                className="absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 z-30 brutal-button bg-surface p-3 !rounded-full opacity-0 group-hover/container:opacity-100 hidden md:block"
              >
                 <ChevronLeft size={24} />
              </button>
              <button 
                 onClick={() => scroll("right")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/10 text-white hover:bg-primary hover:text-black transition-all opacity-0 group-hover/container:opacity-100 hidden md:block"
+                className="absolute -right-4 md:-right-8 top-1/2 -translate-y-1/2 z-30 brutal-button bg-surface p-3 !rounded-full opacity-0 group-hover/container:opacity-100 hidden md:block"
              >
                 <ChevronRight size={24} />
              </button>
 
-
-
           <div 
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto pb-12 pt-4 snap-x snap-mandatory scrollbar-hide"
+            className="flex gap-8 overflow-x-auto pb-8 pt-6 snap-x snap-mandatory scrollbar-hide px-4"
             style={{
                 scrollbarWidth: 'none',  /* Firefox */
                 msOverflowStyle: 'none',  /* IE and Edge */
             }}
           >
-             {/* Hide scrollbar for Chrome/Safari/Opera */
+             {/* Hide scrollbar for Chrome/Safari/Opera */}
               <style jsx>{`
                 div::-webkit-scrollbar {
                   display: none;
                 }
               `}</style>
-            }
 
             {/* Infinite Loop by duplicating the array */}
             {[...certificates, ...certificates, ...certificates].map((cert, index) => (
-              <div key={`${cert.id}-${index}`} className="snap-center shrink-0 w-[300px] md:w-[380px] group">
-                <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:shadow-[0_0_30px_rgba(245,159,10,0.15)] transition-all duration-500 overflow-hidden relative flex flex-col">
+              <div key={`${cert.id}-${index}`} className="snap-center shrink-0 w-[260px] sm:w-[300px] md:w-[380px] group pt-4">
+                <div className="brutal-card h-full flex flex-col hover:-translate-y-2 transition-transform">
                   
                   {/* Image Area */}
-                  <div className="relative h-48 w-full overflow-hidden">
+                  <div className="relative h-56 w-full overflow-hidden border-b-3 border-border rounded-t-[9px]">
                     <Image 
                         src={cert.imageUrl} 
                         alt={cert.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
                     
-                    {/* Badge */}
-                    <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md border border-white/10 p-1.5 rounded-lg">
-                      <Award className="text-primary w-5 h-5 drop-shadow-[0_0_8px_rgba(245,159,10,0.8)]" />
+                    {/* Badge Area */}
+                    <div className="absolute top-4 right-4 bg-surface border-3 border-border p-2 rounded-xl shadow-[4px_4px_0_#1A1A1A]">
+                      <Award className="text-text w-6 h-6" />
                     </div>
                   </div>
 
                   {/* Content Area */}
-                  <div className="p-6 relative flex-1 flex flex-col">
+                  <div className="p-6 relative flex-1 flex flex-col bg-surface rounded-b-xl">
                     {/* Floating Icon */}
                     <div className="absolute -top-10 left-6">
-                      <div className="h-12 w-12 rounded-xl bg-[#1a1610] border border-white/10 flex items-center justify-center shadow-lg group-hover:border-primary/50 transition-colors duration-300">
-                        <span className="font-mono text-xl font-bold text-primary">
+                      <div className={`h-16 w-16 rounded-xl ${cert.color} border-3 border-border flex items-center justify-center shadow-[4px_4px_0_#1A1A1A]`}>
+                        <span className="font-mono text-2xl font-black text-text">
                             {cert.badge}
                         </span>
                       </div>
                     </div>
 
-                    <div className="pt-4 flex flex-col gap-3 flex-1">
-                      <h3 className="text-xl font-bold text-white leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                    <div className="pt-8 flex flex-col gap-4 flex-1">
+                      <h3 className="text-xl font-black text-text uppercase leading-tight line-clamp-2">
                         {cert.title}
                       </h3>
                       
-                      <div className="flex items-center gap-2 text-xs font-mono text-gray-400">
-                        <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-gray-300">
+                      <div className="flex flex-wrap items-center gap-3 font-bold text-sm text-text-muted">
+                        <span className="px-3 py-1 rounded-md bg-bg-alt border-2 border-border text-text shadow-[2px_2px_0_#1A1A1A]">
                             {cert.issuer}
                         </span>
-                        <span className="w-1 h-1 rounded-full bg-gray-600"></span>
-                        <span>{cert.date}</span>
+                        <span className="text-text-muted">{cert.date}</span>
                       </div>
 
-                      <div className="mt-auto pt-4 border-t border-white/5 flex justify-between items-center group/btn cursor-pointer">
-                        <span className="text-xs text-gray-500 font-mono tracking-wider truncate mr-2">
+                      <div className="mt-auto pt-6 flex justify-between items-center border-t-3 border-border border-dashed">
+                        <span className="text-xs font-bold bg-bg-alt px-2 py-1 border-2 border-border rounded-md shadow-[2px_2px_0_#1A1A1A] truncate mr-2">
                             ID: {cert.credentialId}
                         </span>
                         {cert.credentialUrl ? (
@@ -215,13 +206,13 @@ export default function CertificatesSection() {
                                 href={cert.credentialUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="h-8 w-8 shrink-0 rounded-full bg-white/5 flex items-center justify-center group-hover/btn:bg-primary group-hover/btn:text-background-dark transition-all duration-300"
+                                className="brutal-button !p-2 bg-primary hover:bg-primary-dark shrink-0"
                             >
-                                <ExternalLink size={16} />
+                                <ExternalLink size={20} />
                             </a>
                         ) : (
-                            <div className="h-8 w-8 shrink-0 rounded-full bg-white/5 flex items-center justify-center group-hover/btn:bg-primary group-hover/btn:text-background-dark transition-all duration-300">
-                                <ExternalLink size={16} />
+                            <div className="brutal-button !p-2 bg-bg-alt shrink-0">
+                                <ExternalLink size={20} />
                             </div>
                         )}
                       </div>
@@ -232,26 +223,25 @@ export default function CertificatesSection() {
               </div>
             ))}
           </div>
+
+          {/* Swipe hint for mobile */}
+          <div className="flex md:hidden justify-center mt-2 gap-2 items-center text-text-muted">
+            <ChevronLeft size={16} />
+            <span className="text-xs font-bold uppercase tracking-wider">Swipe to explore</span>
+            <ChevronRight size={16} />
+          </div>
         </div>
 
-        {/* Bottom Scroll Indicator */}
-        <div className="flex justify-center items-center gap-3 py-6 opacity-60">
-            <ChevronLeft className="text-primary animate-pulse w-5 h-5" />
-            <span className="text-xs font-mono text-gray-400 uppercase tracking-widest">Scroll to explore</span>
-            <ChevronRight className="text-primary animate-pulse w-5 h-5" />
-        </div>
-
-        {/* CTA Button */}
-        <div className="flex px-4 py-8 justify-center">
+        {/* CTA Button - Fixed: smaller on mobile */}
+        <div className="flex px-4 py-8 justify-center mt-4">
             <a 
                 href="https://drive.google.com/file/d/1pYKjMc-x7FimIwyQof6UFcURLs73Y9YJ/view" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-transparent border border-primary/50 text-white gap-3 font-bold leading-normal tracking-[0.015em] transition-all hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(245,159,10,0.15)] active:scale-95"
+                className="brutal-button bg-accent-pink text-base sm:text-xl py-3 sm:py-4 px-6 sm:px-8 uppercase hover:bg-pink-400"
             >
-                <Download className="transition-transform group-hover:translate-y-1 group-hover:text-primary w-6 h-6" />
-                <span className="truncate group-hover:text-primary transition-colors">Download Full CV</span>
-                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-primary/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
+                <Download size={24} className="mr-3" />
+                <span>Download Full CV</span>
             </a>
         </div>
 
