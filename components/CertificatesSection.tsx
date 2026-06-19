@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Download, ExternalLink, Award } from "lucide-react";
 
@@ -25,7 +25,7 @@ const certificates: Certificate[] = [
         date: "2025",
         credentialId: "MS118D5Y0628",
         category: "Generative AI",
-        imageUrl: "/certificates/[Coding Camp 2025 - SMK] Best Capstone Project - MS118D5Y0628.webp",
+        imageUrl: "/certificates/coding-camp-2025-best-capstone.webp",
         badge: "AI",
         color: "bg-accent-pink"
     },
@@ -36,7 +36,7 @@ const certificates: Certificate[] = [
         date: "2025",
         credentialId: "MS118D5Y0628-1",
         category: "Machine Learning",
-        imageUrl: "/certificates/[Coding Camp 2025] Certificate - MS118D5Y0628-1.webp",
+        imageUrl: "/certificates/coding-camp-2025-completion.webp",
         badge: "CC",
         color: "bg-accent-yellow"
     },
@@ -90,16 +90,69 @@ const certificates: Certificate[] = [
     },
 ];
 
+// Lightweight placeholder SVG to show while images are loading
+// This renders as a subtle shimmer/skeleton instead of blank space
+function getBlurDataURL() {
+  return "data:image/svg+xml;base64," + btoa(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280">
+      <defs>
+        <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#2a2a2a"/>
+          <stop offset="50%" style="stop-color:#3a3a3a"/>
+          <stop offset="100%" style="stop-color:#2a2a2a"/>
+        </linearGradient>
+      </defs>
+      <rect width="400" height="280" fill="url(#g)"/>
+    </svg>`
+  );
+}
+
 export default function CertificatesSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<Set<string>>(new Set());
+
+  const handleImageLoad = useCallback((id: string) => {
+    setImagesLoaded(prev => {
+      const next = new Set(prev);
+      next.add(id);
+      return next;
+    });
+  }, []);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 400; // Adjust as needed
+      const scrollAmount = 400;
       scrollRef.current.scrollBy({
         left: direction === "right" ? scrollAmount : -scrollAmount,
         behavior: "smooth",
       });
+    }
+  };
+
+  // Track active card index from scroll position for indicator dots
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const handleScroll = () => {
+      const scrollLeft = el.scrollLeft;
+      const cardWidth = el.querySelector<HTMLElement>(':scope > div:not(style)')?.offsetWidth ?? 380;
+      const gap = 32; // gap-8 = 2rem = 32px
+      const index = Math.round(scrollLeft / (cardWidth + gap));
+      setActiveIndex(Math.min(index, certificates.length - 1));
+    };
+
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Scroll to a specific card when clicking a dot
+  const scrollToIndex = (index: number) => {
+    if (!scrollRef.current) return;
+    const card = scrollRef.current.querySelector<HTMLElement>(`:scope > div:nth-child(${index + 1})`);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   };
 
@@ -128,12 +181,14 @@ export default function CertificatesSection() {
              <button 
                 onClick={() => scroll("left")}
                 className="absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 z-30 brutal-button bg-surface p-3 !rounded-full opacity-0 group-hover/container:opacity-100 hidden md:block"
+                aria-label="Scroll left"
              >
                 <ChevronLeft size={24} />
              </button>
              <button 
                 onClick={() => scroll("right")}
                 className="absolute -right-4 md:-right-8 top-1/2 -translate-y-1/2 z-30 brutal-button bg-surface p-3 !rounded-full opacity-0 group-hover/container:opacity-100 hidden md:block"
+                aria-label="Scroll right"
              >
                 <ChevronRight size={24} />
              </button>
@@ -153,19 +208,28 @@ export default function CertificatesSection() {
                 }
               `}</style>
 
-            {/* Infinite Loop by duplicating the array */}
-            {[...certificates, ...certificates, ...certificates].map((cert, index) => (
-              <div key={`${cert.id}-${index}`} className="snap-center shrink-0 w-[260px] sm:w-[300px] md:w-[380px] group pt-4">
+            {certificates.map((cert, index) => (
+              <div key={cert.id} className="snap-center shrink-0 w-[260px] sm:w-[300px] md:w-[380px] group pt-4">
                 <div className="brutal-card h-full flex flex-col hover:-translate-y-2 transition-transform">
                   
                   {/* Image Area */}
-                  <div className="relative h-56 w-full overflow-hidden border-b-3 border-border rounded-t-[9px]">
+                  <div className="relative h-56 w-full overflow-hidden border-b-3 border-border rounded-t-[9px] bg-bg-alt">
+                    {/* Skeleton shimmer while loading */}
+                    {!imagesLoaded.has(cert.id) && (
+                      <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-bg-alt via-surface to-bg-alt" />
+                    )}
                     <Image 
                         src={cert.imageUrl} 
                         alt={cert.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className={`object-cover transition-all duration-500 group-hover:scale-105 ${
+                          imagesLoaded.has(cert.id) ? 'opacity-100' : 'opacity-0'
+                        }`}
+                        sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, 380px"
+                        loading={index < 2 ? "eager" : "lazy"}
+                        placeholder="blur"
+                        blurDataURL={getBlurDataURL()}
+                        onLoad={() => handleImageLoad(cert.id)}
                     />
                     
                     {/* Badge Area */}
@@ -224,11 +288,20 @@ export default function CertificatesSection() {
             ))}
           </div>
 
-          {/* Swipe hint for mobile */}
-          <div className="flex md:hidden justify-center mt-2 gap-2 items-center text-text-muted">
-            <ChevronLeft size={16} />
-            <span className="text-xs font-bold uppercase tracking-wider">Swipe to explore</span>
-            <ChevronRight size={16} />
+          {/* Dot indicators (replace swipe text) */}
+          <div className="flex justify-center mt-2 gap-2 items-center">
+            {certificates.map((cert, index) => (
+              <button
+                key={cert.id}
+                onClick={() => scrollToIndex(index)}
+                aria-label={`Go to certificate ${index + 1}`}
+                className={`w-2.5 h-2.5 rounded-full border-2 border-border transition-all duration-300 ${
+                  activeIndex === index
+                    ? 'bg-primary scale-125 shadow-[2px_2px_0_#1A1A1A]'
+                    : 'bg-bg-alt hover:bg-surface'
+                }`}
+              />
+            ))}
           </div>
         </div>
 
