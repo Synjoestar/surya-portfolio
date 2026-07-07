@@ -308,7 +308,7 @@ export default function CertificatesSection() {
         {/* CTA Button - Fixed: smaller on mobile */}
         <div className="flex px-4 py-8 justify-center mt-4">
             <a 
-                href="https://drive.google.com/file/d/1pYKjMc-x7FimIwyQof6UFcURLs73Y9YJ/view" 
+                href="/Harvard_ATS_ML_EN.pdf" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="brutal-button bg-accent-pink text-base sm:text-xl py-3 sm:py-4 px-6 sm:px-8 uppercase hover:bg-pink-400"

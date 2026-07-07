@@ -120,7 +120,7 @@ export default function AboutSection() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mt-auto">
-                <a href="https://drive.google.com/file/d/1pYKjMc-x7FimIwyQof6UFcURLs73Y9YJ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="brutal-button bg-accent-yellow text-lg">
+                <a href="/Harvard_ATS_ML_EN.pdf" target="_blank" rel="noopener noreferrer" className="brutal-button bg-accent-yellow text-lg">
                   <Download size={20} className="mr-2" />
                   <span>Resume</span>
                 </a>
