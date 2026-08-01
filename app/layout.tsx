@@ -58,6 +58,29 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} bg-bg text-text font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-text`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Surya Yusuf Nugroho",
+              "url": "https://syncode.site",
+              "image": "https://syncode.site/images/profile.webp",
+              "jobTitle": "ML Engineer & Developer",
+              "description": "Machine Learning Engineer specializing in Deep Learning, Computer Vision, and MLOps.",
+              "sameAs": [
+                "https://www.linkedin.com/in/surya-yusuf-nugroho",
+                "https://github.com/Synjoestar"
+              ],
+              "knowsAbout": ["Machine Learning", "Deep Learning", "Computer Vision", "MLOps", "Python", "PyTorch", "TensorFlow"],
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Freelance"
+              }
+            }),
+          }}
+        />
         {children}
       </body>
     </html>
