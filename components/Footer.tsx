@@ -27,6 +27,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/surya-yusuf-nugroho"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
                 className="brutal-button !p-3 bg-surface"
               >
                 <Linkedin size={20} className="text-text" />
@@ -35,6 +36,7 @@ export default function Footer() {
                 href="https://github.com/Synjoestar"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub Profile"
                 className="brutal-button !p-3 bg-surface"
               >
                 <Code size={20} className="text-text" />
@@ -43,6 +45,7 @@ export default function Footer() {
                 href="https://instagram.com/utchup"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram Profile"
                 className="brutal-button !p-3 bg-surface"
               >
                 <Camera size={20} className="text-text" />
@@ -121,25 +124,22 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
+                  aria-label="Subscribe to newsletter"
                   className="absolute right-2 top-2 bottom-2 aspect-square bg-primary border-2 border-border text-text rounded-md flex items-center justify-center hover:translate-x-[2px] hover:translate-y-[2px] transition-all shadow-[2px_2px_0_#1A1A1A]"
                 >
                   <ArrowRight size={20} strokeWidth={3} />
                 </button>
               </div>
-              <p className="text-xs font-black text-text-muted uppercase tracking-wider bg-bg-alt w-fit px-2 border-2 border-border">No spam, just tech.</p>
+              <p className="text-xs font-black text-text uppercase tracking-wider bg-bg-alt w-fit px-2 border-2 border-border">No spam, just tech.</p>
             </form>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm font-bold bg-surface p-4 sm:p-6 border-4 border-border rounded-xl shadow-[4px_4px_0_#1A1A1A] sm:shadow-[6px_6px_0_#1A1A1A]">
-          <p className="text-text text-sm sm:text-base">
-            © {new Date().getFullYear()} Surya Yusuf Nugroho. Built with <span className="text-primary-dark font-black uppercase px-1 bg-primary-light border-2 border-border">code</span> & caffeine.
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-sm font-bold bg-surface p-4 sm:p-6 border-4 border-border rounded-xl shadow-[4px_4px_0_#1A1A1A] sm:shadow-[6px_6px_0_#1A1A1A]">
+          <p className="text-text text-sm sm:text-base text-center">
+            © {new Date().getFullYear()} Surya Yusuf Nugroho. Built with <span className="text-text font-black uppercase px-1 bg-primary-light border-2 border-border">code</span> & caffeine.
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-text hover:underline decoration-2 underline-offset-4 transition-colors">Privacy Policy</a>
-            <a href="#" className="text-text hover:underline decoration-2 underline-offset-4 transition-colors">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>

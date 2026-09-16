@@ -55,6 +55,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://api.lanyard.rest" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://api.lanyard.rest" />
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} bg-bg text-text font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-text`}
       >

@@ -43,6 +43,7 @@ export default function ProjectsSection() {
                     src="/images/trashlab.webp"
                     alt="TrashLab - Waste Classification System"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
             </div>
@@ -83,6 +84,7 @@ export default function ProjectsSection() {
                     src="/images/diabetes.webp"
                     alt="Diabetes Prediction Model"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
             </div>
@@ -121,6 +123,7 @@ export default function ProjectsSection() {
                     src="/images/buku.webp"
                     alt="Book Recommendation Engine"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
                     className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 mix-blend-multiply"
                 />
             </div>

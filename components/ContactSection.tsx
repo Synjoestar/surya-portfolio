@@ -53,10 +53,10 @@ export default function ContactSection() {
                 Open for Work
               </div>
               {/* Fixed: smaller headline on mobile */}
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-text tracking-tighter leading-[1] uppercase drop-shadow-[4px_4px_0_#FBBF24]">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-text tracking-tighter leading-[1] uppercase drop-shadow-[4px_4px_0_#FBBF24]">
                 Let&apos;s <br/>
                 Collaborate.
-              </h1>
+              </h2>
               <p className="text-text-muted font-bold text-lg md:text-xl leading-relaxed max-w-md bg-surface p-4 border-3 border-border rounded-xl shadow-[4px_4px_0_#1A1A1A] mt-4">
                 Have a complex ML architecture to discuss or a bold project in mind? I&apos;m ready to help you build the future.
               </p>
@@ -83,13 +83,31 @@ export default function ContactSection() {
 
             {/* Socials */}
             <div className="flex gap-4 mt-6">
-              <a href="https://github.com/Synjoestar" target="_blank" rel="noopener noreferrer" className="brutal-button bg-surface !p-3">
+              <a 
+                href="https://github.com/Synjoestar" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="GitHub Profile" 
+                className="brutal-button bg-surface !p-3"
+              >
                 <Code size={24} />
               </a>
-              <a href="https://www.linkedin.com/in/surya-yusuf-nugroho" target="_blank" rel="noopener noreferrer" className="brutal-button bg-primary !p-3">
+              <a 
+                href="https://www.linkedin.com/in/surya-yusuf-nugroho" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="LinkedIn Profile" 
+                className="brutal-button bg-primary !p-3"
+              >
                 <AtSign size={24} />
               </a>
-              <a href="https://instagram.com/utchup" target="_blank" rel="noopener noreferrer" className="brutal-button bg-accent-yellow !p-3">
+              <a 
+                href="https://instagram.com/utchup" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Instagram Profile" 
+                className="brutal-button bg-accent-yellow !p-3"
+              >
                 <Camera size={24} />
               </a>
             </div>

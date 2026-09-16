@@ -270,12 +270,13 @@ export default function CertificatesSection() {
                                 href={cert.credentialUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label={`Verify credential for ${cert.title}`}
                                 className="brutal-button !p-2 bg-primary hover:bg-primary-dark shrink-0"
                             >
                                 <ExternalLink size={20} />
                             </a>
                         ) : (
-                            <div className="brutal-button !p-2 bg-bg-alt shrink-0">
+                            <div className="brutal-button !p-2 bg-bg-alt shrink-0" aria-hidden="true">
                                 <ExternalLink size={20} />
                             </div>
                         )}
@@ -289,18 +290,22 @@ export default function CertificatesSection() {
           </div>
 
           {/* Dot indicators (replace swipe text) */}
-          <div className="flex justify-center mt-2 gap-2 items-center">
+          <div className="flex justify-center mt-2 gap-1 items-center">
             {certificates.map((cert, index) => (
               <button
                 key={cert.id}
                 onClick={() => scrollToIndex(index)}
-                aria-label={`Go to certificate ${index + 1}`}
-                className={`w-2.5 h-2.5 rounded-full border-2 border-border transition-all duration-300 ${
-                  activeIndex === index
-                    ? 'bg-primary scale-125 shadow-[2px_2px_0_#1A1A1A]'
-                    : 'bg-bg-alt hover:bg-surface'
-                }`}
-              />
+                aria-label={`Go to certificate ${index + 1}: ${cert.title}`}
+                className="w-8 h-8 flex items-center justify-center cursor-pointer"
+              >
+                <span
+                  className={`w-3 h-3 rounded-full border-2 border-border transition-all duration-300 ${
+                    activeIndex === index
+                      ? 'bg-primary scale-125 shadow-[2px_2px_0_#1A1A1A]'
+                      : 'bg-bg-alt hover:bg-surface'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

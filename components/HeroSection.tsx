@@ -113,6 +113,8 @@ export default function HeroSection() {
                             src="/images/profile.webp" 
                             alt="Surya Yusuf Nugroho" 
                             fill
+                            priority
+                            sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 420px"
                             className="object-cover group-hover:scale-105 transition-all duration-500 ease-in-out"
                         />
                     </div>

@@ -14,7 +14,7 @@ export default function AboutSection() {
           <ScrollReveal>
           <div className="flex items-center gap-3 px-4 pb-6 pt-4">
             <span className="h-[4px] w-8 bg-primary border-y-2 border-l-2 border-border"></span>
-            <h3 className="text-text font-mono text-sm font-black tracking-widest uppercase bg-primary-light px-2 py-1 border-2 border-border">About The Engineer</h3>
+            <p className="text-text font-mono text-sm font-black tracking-widest uppercase bg-primary-light px-2 py-1 border-2 border-border">About The Engineer</p>
           </div>
           </ScrollReveal>
 
@@ -30,6 +30,7 @@ export default function AboutSection() {
                     src="/images/profile.webp" 
                     alt="Surya Yusuf Nugroho" 
                     fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
@@ -57,11 +58,11 @@ export default function AboutSection() {
               {/* Mini Stats Grid */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="brutal-card p-5 bg-accent-pink">
-                  <h4 className="text-3xl font-black text-text mb-1">1<span className="text-text text-xl">+</span></h4>
+                  <p className="text-3xl font-black text-text mb-1">1<span className="text-text text-xl">+</span></p>
                   <p className="text-text font-bold text-xs uppercase tracking-wider">Years Exp.</p>
                 </div>
                 <div className="brutal-card p-5 bg-primary-light">
-                  <h4 className="text-3xl font-black text-text mb-1">5<span className="text-text text-xl">+</span></h4>
+                  <p className="text-3xl font-black text-text mb-1">5<span className="text-text text-xl">+</span></p>
                   <p className="text-text font-bold text-xs uppercase tracking-wider">Models Deployed</p>
                 </div>
               </div>
@@ -69,9 +70,9 @@ export default function AboutSection() {
 
             {/* Right Column: Bio & Details */}
             <div className="lg:col-span-7 flex flex-col justify-center h-full pt-4 lg:pt-0">
-              <h1 className="text-text tracking-tighter text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-8 uppercase drop-shadow-[2px_2px_0_rgba(155,138,251,1)]">
+              <h2 className="text-text tracking-tighter text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-8 uppercase drop-shadow-[2px_2px_0_rgba(155,138,251,1)]">
                 Building the <span className="text-primary-dark underline decoration-border decoration-4 underline-offset-4">brains</span> <br className="hidden md:block"/> of tomorrow.
-              </h1>
+              </h2>
               
               <div className="space-y-6 text-text-muted text-lg font-medium leading-relaxed max-w-[640px]">
                 <p>

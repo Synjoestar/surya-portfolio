@@ -44,7 +44,7 @@ export default function StatusWidgets() {
         <div className="flex-grow min-w-0">
           <div className="flex items-center gap-2 mb-1">
             <MapPin size={16} className="text-border font-bold flex-shrink-0" />
-            <h3 className="font-black text-lg sm:text-xl text-text uppercase">Jakarta, ID</h3>
+            <p className="font-black text-lg sm:text-xl text-text uppercase">Jakarta, ID</p>
           </div>
           <div className="flex items-center justify-between flex-wrap gap-2">
             <p className="font-bold text-text-muted text-sm sm:text-base">Partly Cloudy • 32°C</p>
@@ -60,6 +60,7 @@ export default function StatusWidgets() {
         href={`https://discord.com/users/${DISCORD_ID}`}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Discord Profile and Status"
         className="brutal-card flex items-center p-4 sm:p-6 bg-[#C4B5FD] hover:-translate-y-1 transition-transform cursor-pointer"
       >
         <div className="flex-shrink-0 mr-4 sm:mr-6 relative">
@@ -80,9 +81,9 @@ export default function StatusWidgets() {
           <div className={`absolute -bottom-1 -right-1 w-4 h-4 md:w-5 md:h-5 ${getStatusColor(discord?.discord_status || 'offline')} border-2 border-border rounded-full`}></div>
         </div>
         <div className="flex-grow min-w-0">
-          <h3 className="font-black text-lg sm:text-xl text-text uppercase mb-1 flex items-center gap-2">
+          <p className="font-black text-lg sm:text-xl text-text uppercase mb-1 flex items-center gap-2">
             Discord Status
-          </h3>
+          </p>
           {discord?.listening_to_spotify ? (
             <div className="flex flex-col">
               <p className="font-bold text-text-muted flex items-center gap-2 text-sm line-clamp-1">
