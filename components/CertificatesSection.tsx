@@ -90,22 +90,6 @@ const certificates: Certificate[] = [
     },
 ];
 
-// Lightweight placeholder SVG to show while images are loading
-// This renders as a subtle shimmer/skeleton instead of blank space
-function getBlurDataURL() {
-  return "data:image/svg+xml;base64," + btoa(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280">
-      <defs>
-        <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#2a2a2a"/>
-          <stop offset="50%" style="stop-color:#3a3a3a"/>
-          <stop offset="100%" style="stop-color:#2a2a2a"/>
-        </linearGradient>
-      </defs>
-      <rect width="400" height="280" fill="url(#g)"/>
-    </svg>`
-  );
-}
 
 export default function CertificatesSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -208,7 +192,7 @@ export default function CertificatesSection() {
                 }
               `}</style>
 
-            {certificates.map((cert, index) => (
+            {certificates.map((cert) => (
               <div key={cert.id} className="snap-center shrink-0 w-[260px] sm:w-[300px] md:w-[380px] group pt-4">
                 <div className="brutal-card h-full flex flex-col hover:-translate-y-2 transition-transform">
                   
@@ -222,13 +206,11 @@ export default function CertificatesSection() {
                         src={cert.imageUrl} 
                         alt={cert.title}
                         fill
-                        className={`object-cover transition-all duration-500 group-hover:scale-105 ${
+                        className={`object-cover transition-opacity transition-transform duration-500 group-hover:scale-105 ${
                           imagesLoaded.has(cert.id) ? 'opacity-100' : 'opacity-0'
                         }`}
                         sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, 380px"
-                        loading={index < 2 ? "eager" : "lazy"}
-                        placeholder="blur"
-                        blurDataURL={getBlurDataURL()}
+                        loading="lazy"
                         onLoad={() => handleImageLoad(cert.id)}
                     />
                     

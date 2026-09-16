@@ -5,12 +5,14 @@ import "./globals.css";
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ["latin"], 
   variable: "--font-display",
-  weight: ['400', '500', '600', '700']
+  weight: ['400', '700'],
+  display: 'swap',
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -58,6 +60,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://api.lanyard.rest" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://api.lanyard.rest" />
+        <link rel="preconnect" href="https://cdn.discordapp.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.discordapp.com" />
       </head>
       <body
         className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} bg-bg text-text font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-text`}

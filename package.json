@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "next build && npx wrangler pages deploy out --project-name=syncode-portfolio --branch=main",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "framer-motion": "^12.23.26",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "react": "19.2.3",
@@ -25,7 +25,14 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "browserslist": [
+    "Chrome >= 100",
+    "Safari >= 15.4",
+    "Edge >= 100",
+    "Firefox >= 100"
+  ]
 }

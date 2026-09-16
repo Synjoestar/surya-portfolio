@@ -3,8 +3,8 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceSection from "@/components/ExperienceSection";
-import ContactSection from "@/components/ContactSection";
 import CertificatesSection from "@/components/CertificatesSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,11 +13,21 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <CertificatesSection />
-        <ContactSection />
+        <div className="defer-render">
+          <AboutSection />
+        </div>
+        <div className="defer-render">
+          <ProjectsSection />
+        </div>
+        <div className="defer-render">
+          <ExperienceSection />
+        </div>
+        <div className="defer-render">
+          <CertificatesSection />
+        </div>
+        <div className="defer-render">
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>

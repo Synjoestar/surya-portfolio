@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Github, Activity } from "lucide-react";
-import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 
 export default function ProjectsSection() {
@@ -33,8 +32,7 @@ export default function ProjectsSection() {
           
           {/* Project 1: TrashLab (Large Card) */}
           <Link href="https://trashlab.vercel.app" target="_blank" rel="noopener noreferrer" className="md:col-span-2">
-          <motion.div 
-             whileHover={{ y: -5 }}
+          <div 
              className="group h-full brutal-card p-0 overflow-hidden flex flex-col md:flex-row cursor-pointer"
           >
             {/* TrashLab Image */}
@@ -43,7 +41,8 @@ export default function ProjectsSection() {
                     src="/images/trashlab.webp"
                     alt="TrashLab - Waste Classification System"
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 380px, (max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
             </div>
@@ -66,13 +65,12 @@ export default function ProjectsSection() {
                     <span className="text-sm font-black text-text border-b-4 border-primary pb-0.5 group-hover:border-primary-dark transition-colors">View Live Site</span>
                 </div>
             </div>
-          </motion.div>
+          </div>
           </Link>
 
           {/* Project 2: Diabetes Prediction */}
           <Link href="https://github.com/Synjoestar/diabetesprediksi" target="_blank" rel="noopener noreferrer">
-          <motion.div 
-            whileHover={{ y: -5 }}
+          <div 
             className="group h-full brutal-card p-0 flex flex-col relative overflow-hidden cursor-pointer bg-accent-pink"
           >
             <div className="absolute top-4 right-4 text-text animate-pulse z-20 brutal-card p-2 bg-surface border-2">
@@ -84,7 +82,8 @@ export default function ProjectsSection() {
                     src="/images/diabetes.webp"
                     alt="Diabetes Prediction Model"
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 380px, (max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
             </div>
@@ -98,13 +97,12 @@ export default function ProjectsSection() {
                     <span className="brutal-tag py-1 px-2 text-[10px]">Random Forest</span>
                 </div>
             </div>
-          </motion.div>
+          </div>
           </Link>
 
           {/* Project 3: Book Recommendation */}
           <Link href="https://github.com/Synjoestar/sistem-rekomendasi" target="_blank" rel="noopener noreferrer" className="md:col-span-2">
-          <motion.div 
-            whileHover={{ y: -5 }}
+          <div 
             className="group h-full brutal-card p-6 relative overflow-hidden flex flex-col justify-between cursor-pointer bg-primary-light"
           >
              <div className="flex items-center justify-between mb-4 relative z-10">
@@ -123,17 +121,17 @@ export default function ProjectsSection() {
                     src="/images/buku.webp"
                     alt="Book Recommendation Engine"
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 380px, (max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
                     className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 mix-blend-multiply"
                 />
             </div>
-          </motion.div>
+          </div>
           </Link>
 
           {/* More on GitHub - Fixed: added mobile GitHub link */}
-          <motion.div 
-            whileHover={{ scale: 1.02 }}
-            className="group brutal-card p-6 bg-accent-yellow flex flex-col items-center justify-center text-center gap-2"
+          <div 
+            className="group brutal-card p-6 bg-accent-yellow flex flex-col items-center justify-center text-center gap-2 transition-transform duration-200 hover:scale-[1.02]"
           >
             <div className="w-16 h-16 rounded-full bg-surface flex items-center justify-center mb-2 border-3 border-border shadow-[4px_4px_0_#1A1A1A] group-hover:translate-x-1 group-hover:translate-y-1 group-hover:shadow-[0px_0px_0_#1A1A1A] transition-all">
                 <Github size={32} className="text-text" />
@@ -141,7 +139,7 @@ export default function ProjectsSection() {
             <h3 className="text-2xl font-black uppercase">More on GitHub</h3>
             <p className="text-text font-bold text-sm">Explore 20+ other repositories and experiments.</p>
             <a href="https://github.com/Synjoestar" target="_blank" rel="noopener noreferrer" className="mt-2 text-text text-sm font-black underline decoration-4 underline-offset-4 hover:text-primary-dark transition-colors">@Synjoestar</a>
-          </motion.div>
+          </div>
 
         </div>
         </ScrollReveal>

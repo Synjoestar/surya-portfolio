@@ -70,7 +70,10 @@ export default function ContactSection() {
                 </div>
                 <h3 className="text-text font-black text-xl uppercase">Email</h3>
                 {/* Fixed: break-words instead of break-all */}
-                <p className="text-text font-bold mt-2 text-sm md:text-base break-words">suryanugroho042@gmail.com</p>
+                <p 
+                  className="text-text font-bold mt-2 text-sm md:text-base break-words"
+                  dangerouslySetInnerHTML={{ __html: "<!--email_off-->suryanugroho042@gmail.com<!--/email_off-->" }}
+                />
               </a>
               <div className="brutal-card p-6 bg-accent-pink hover:bg-pink-400 transition-colors">
                 <div className="size-12 rounded-xl bg-surface border-3 border-border flex items-center justify-center text-text mb-4 shadow-[4px_4px_0_#1A1A1A]">

@@ -145,3 +145,25 @@ body {
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
+
+/* Hardware-accelerated fade-in for hero badge */
+@keyframes heroBadgeFadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-badge-animate {
+  animation: heroBadgeFadeIn 0.5s ease-out 0.5s both;
+}
+
+/* Defer rendering of below-fold sections for faster initial paint */
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}

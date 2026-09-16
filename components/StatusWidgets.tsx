@@ -67,10 +67,11 @@ export default function StatusWidgets() {
           <div className="w-12 h-12 md:w-16 md:h-16 bg-surface border-3 border-border rounded-2xl flex items-center justify-center shadow-[4px_4px_0_#1A1A1A] overflow-hidden">
             {discord?.discord_user ? (
               <Image 
-                src={`https://cdn.discordapp.com/avatars/${discord.discord_user.id}/${discord.discord_user.avatar}.png`} 
+                src={`https://cdn.discordapp.com/avatars/${discord.discord_user.id}/${discord.discord_user.avatar}.png?size=32`} 
                 alt="Discord Avatar" 
-                width={64} 
-                height={64} 
+                width={32} 
+                height={32} 
+                crossOrigin="anonymous"
                 className="w-full h-full object-cover"
               />
             ) : (

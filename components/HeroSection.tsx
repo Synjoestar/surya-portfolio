@@ -1,53 +1,9 @@
-"use client";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+
 import { ArrowDown, Send, Bot, Cpu } from "lucide-react";
-import StatusWidgets from "./StatusWidgets";
-
-const Typewriter = ({ words }: { words: string[] }) => {
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [reverse, setReverse] = useState(false);
-  const [blink, setBlink] = useState(true);
-
-  // Blink cursor
-  useEffect(() => {
-    const timeout2 = setTimeout(() => {
-      setBlink((prev) => !prev);
-    }, 500);
-    return () => clearTimeout(timeout2);
-  }, [blink]);
-
-  // Typing logic
-  useEffect(() => {
-    if (subIndex === words[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 0);
-      return;
-    }
-
-    if (subIndex === 0 && reverse) {
-      setTimeout(() => {
-        setReverse(false);
-        setIndex((prev) => (prev + 1) % words.length);
-      }, 0);
-      return;
-    }
-
-    const timeout = setTimeout(() => {
-      setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, Math.max(reverse ? 75 : subIndex === words[index].length ? 1500 : 150, parseInt((Math.random() * 350).toString())));
-
-    return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse, words]);
-
-  return (
-    <span className="font-mono font-bold text-xl md:text-2xl text-primary-dark flex items-center h-8 bg-primary-light px-2 py-1 rounded-sm border-2 border-border border-b-[4px]">
-        {`${words[index].substring(0, subIndex)}${blink ? "|" : " "}`}
-    </span>
-  );
-};
+import Typewriter from "./Typewriter";
+import LazyStatusWidgets from "./LazyStatusWidgets";
 
 export default function HeroSection() {
   return (
@@ -114,18 +70,16 @@ export default function HeroSection() {
                             alt="Surya Yusuf Nugroho" 
                             fill
                             priority
+                            fetchPriority="high"
                             sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 420px"
-                            className="object-cover group-hover:scale-105 transition-all duration-500 ease-in-out"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                         />
                     </div>
                 </div>
 
                 {/* Floating Badge (Verified) */}
-                <motion.div 
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="absolute bottom-4 -left-4 bg-surface p-3 rounded-xl border-3 border-border flex items-center gap-3 shadow-[4px_4px_0_#1A1A1A] z-20"
+                <div 
+                    className="hero-badge-animate absolute bottom-4 -left-4 bg-surface p-3 rounded-xl border-3 border-border flex items-center gap-3 shadow-[4px_4px_0_#1A1A1A] z-20"
                 >
                     <div className="w-10 h-10 rounded-full bg-success border-2 border-border flex items-center justify-center text-white">
                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -136,7 +90,7 @@ export default function HeroSection() {
                         <span className="text-sm font-black text-text uppercase">Surya Yusuf N.</span>
                         <span className="text-xs text-primary-dark font-bold font-mono">Verified</span>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Floating Icons - Hidden on small screens to prevent overflow */}
                 <div className="absolute -top-6 -right-6 w-14 h-14 bg-accent-yellow rounded-full hidden sm:flex items-center justify-center border-3 border-border animate-bounce shadow-[4px_4px_0_#1A1A1A] z-20">
@@ -151,7 +105,7 @@ export default function HeroSection() {
 
       {/* Widgets Section - Fixed: reduced spacing on mobile */}
       <div className="w-full max-w-7xl mx-auto mt-10 md:mt-20 relative z-10">
-        <StatusWidgets />
+        <LazyStatusWidgets />
       </div>
     </section>
   );

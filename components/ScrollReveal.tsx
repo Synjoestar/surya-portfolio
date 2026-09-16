@@ -1,6 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { useEffect, useRef, useState, ReactNode } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -15,33 +14,50 @@ export default function ScrollReveal({
   delay = 0,
   direction = "up" 
 }: ScrollRevealProps) {
-  const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { y: 0, x: 40 },
-    right: { y: 0, x: -40 },
+  const [isVisible, setIsVisible] = useState(() => {
+    return typeof window !== "undefined" && !("IntersectionObserver" in window);
+  });
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { rootMargin: "-50px", threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const getTransform = () => {
+    if (isVisible) return "none";
+    switch (direction) {
+      case "up": return "translate3d(0, 40px, 0)";
+      case "down": return "translate3d(0, -40px, 0)";
+      case "left": return "translate3d(40px, 0, 0)";
+      case "right": return "translate3d(-40px, 0, 0)";
+    }
   };
 
   return (
-    <motion.div
-      initial={{ 
-        opacity: 0, 
-        ...directions[direction]
-      }}
-      whileInView={{ 
-        opacity: 1, 
-        y: 0, 
-        x: 0 
-      }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ 
-        duration: 0.6, 
-        delay,
-        ease: [0.25, 0.1, 0.25, 1]
+    <div
+      ref={ref}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: getTransform(),
+        transition: `opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) ${delay}s, transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) ${delay}s`,
       }}
       className={className}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
