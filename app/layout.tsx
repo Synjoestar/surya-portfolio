@@ -58,6 +58,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(typeof window!=="undefined"&&window.location.hostname.includes("syncode.site")){window.location.replace("https://nugroho.ai.id"+window.location.pathname+window.location.search);}`,
+          }}
+        />
         <link rel="preconnect" href="https://api.lanyard.rest" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://api.lanyard.rest" />
         <link rel="preconnect" href="https://cdn.discordapp.com" crossOrigin="anonymous" />
