@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://syncode.site",
+    url: "https://nugroho.ai.id",
     siteName: "Syncode — Surya's Portfolio",
     title: "Surya Yusuf Nugroho — ML Engineer & Developer",
     description: "Architecting intelligent systems and deploying scalable machine learning models. Specializing in Deep Learning, Computer Vision, and MLOps.",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description: "Architecting intelligent systems and deploying scalable machine learning models.",
     images: ["/og-image.png"],
   },
-  metadataBase: new URL("https://syncode.site"),
+  metadataBase: new URL("https://nugroho.ai.id"),
 };
 
 export default function RootLayout({
@@ -73,8 +73,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Surya Yusuf Nugroho",
-              "url": "https://syncode.site",
-              "image": "https://syncode.site/images/profile.webp",
+              "url": "https://nugroho.ai.id",
+              "image": "https://nugroho.ai.id/images/profile.webp",
               "jobTitle": "ML Engineer & Developer",
               "description": "Machine Learning Engineer specializing in Deep Learning, Computer Vision, and MLOps.",
               "sameAs": [
